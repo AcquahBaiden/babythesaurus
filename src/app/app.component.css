@@ -1,0 +1,55 @@
+
+.backdrop{
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: #E7EEEF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+img{
+  /* border: 5px solid #FFBA00; */
+  width: 350px;
+}
+.backdrop button.yellow{
+  border: 5px solid #FFBA00;
+  border-radius: 0 0 5px 5px;
+  color:#fff;
+  background-color:#FFD262;
+  padding: 10px 60px;
+  font-size: 20px;
+}
+
+.backdrop .card{
+  background-color:#ffffff;
+  padding: 30px 20px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.16), 0 1px 1.5px rgba(0, 0, 0, 0.23);
+  z-index: 1;
+  border-radius:5px;
+  max-width: 350px;;
+}
+.backdrop .card .message{
+  text-align: left;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+.backdrop .card .header{
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.backdrop .card button{
+  align-self: center;
+  border: 5px solid var(--blue-main);
+  /* border-radius: 0 0 5px 5px; */
+  color:#fff;
+  background-color:var(--blue-main);
+  padding: 10px 60px;
+  font-size: 20px;
+}

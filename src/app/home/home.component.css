@@ -1,0 +1,83 @@
+.main-wrapper{
+  min-height: 100vh;
+  background-image: linear-gradient(180deg, var(--blue-main) 50vh, #fff 50vh);
+
+}
+.position{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+.content-wrapper{
+  margin-bottom: 100px;
+  width: 349px;
+  min-height: 721px;
+
+}
+.heading{
+  text-align: center;
+  color: #fff;
+  padding-top: 100px;
+}
+.word-group{
+  height: 80px;
+}
+
+.word-group .word{
+  font-size: 35px;
+  font-family: Dosis;
+  font-weight: 700;
+}
+.word-group .phenotic{
+  opacity: 61%;
+}
+.actions{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 0 20px;
+}
+.card{
+  background-color:#ffffff;
+  padding: 30px 20px;
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.16), 0 1px 1.5px rgba(0, 0, 0, 0.23);
+  z-index: 1;
+  border-radius:5px;
+}
+ span.speech{
+  /* font: var(--secondary); */
+  font-weight: 700;
+}
+.meaning{
+  font-weight: 600;
+
+}
+.example{
+  opacity: 61%;
+  margin-bottom: 15px;
+}
+span.word{
+  background-color:var(--word-shade);
+  border-radius:5px;
+  padding: 0 3px;
+}
+
+.speech-group{
+  margin-bottom: 30px;
+}
+.similarWords .word{
+  margin: 0 10px;
+}
+svg.clickable:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+span.speech{
+  color:var(--secondary)
+}
+
+ @media(max-width:767px){
+  .main-wrapper{
+    background-image: linear-gradient(180deg, var(--blue-main) 55vh, #fff 45vh);
+  }
+}

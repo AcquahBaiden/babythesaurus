@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+  --blue-main:#2FAAB9;
+  --secondary:#F4A669;
+  --word-shade: #c7c7c757;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+body{
+  margin: 0;
+
+}

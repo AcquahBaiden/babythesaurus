@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192.815" height="197.358" viewBox="0 0 192.815 197.358">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_10" data-name="Path 10" d="M473.32,983.3l3.021,2.229s0,4.595,0,4.595l-1.973,6.5-3.783,3.363-5.53,3.006-6.283,1.995,4.437,1.155,7.375,2.276,8.293,3.451,4.623,2.651,4.45,5.624,1.6,5.983v5.332l-2.969,4.307,2.969,3.015,1.306,4.667L489.547,1049l-4.354,4.744-6.316,2.1-8.293-.888-5.53-1.208L458.772,1050l-4.459-3.433-4.4-4.055,1.7,4.942,2.7,7.5,1.04,7.712-1.04,8.235-4.4,4.43-5.116,2.284h-5.065l-5.754,3.529-8.609.935-8.038-2-4.446-3.542-2.821-4.54-2.758-6.706s0-6.261,0-6.261V1049l1.06-4.271,1.7-4.705v-5.447l-1.7,5.447-2.217,6.542-2.325,6.337-2.387,6.127-3.711,6.261-4.822,3.564-7.692,1.032-7.253-1.032-4.327-4.435-1.587-4.589-1.378-2.694-5.585-4.233-2.2-5.45-1.147-4.01,1.147-5.809,2.2-3.058,1.753-3.887,3.833-3.477,2.966-3.932,4.327-3.14,4.22-2.822,3.032-2.8Z" transform="translate(1018 109)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-978.308 -24.464)">
+    <g id="Flower_top_right" data-name="Flower top right" transform="translate(1351.143 -1675.298) rotate(61)" clip-path="url(#clip-path)">
+      <g id="Rectangle_12" data-name="Rectangle 12" transform="translate(1345.612 1068.02)" fill="#ebf9fa" stroke="#707070" stroke-width="1">
+        <rect width="185.095" height="140.55" stroke="none"/>
+        <rect x="0.5" y="0.5" width="184.095" height="139.55" fill="none"/>
+      </g>
+    </g>
+    <g id="Flower_top_right-2" data-name="Flower top right" transform="matrix(-0.454, -0.891, 0.891, -0.454, 736.249, 1909.602)" clip-path="url(#clip-path)">
+      <g id="Rectangle_15" data-name="Rectangle 15" transform="translate(1345.612 1068.02)" fill="#ebf9fa" stroke="#707070" stroke-width="1">
+        <rect width="185.095" height="140.55" stroke="none"/>
+        <rect x="0.5" y="0.5" width="184.095" height="139.55" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
