@@ -8,10 +8,11 @@
       <span></span>
 
       <ul id="menu">
-        <a href=""><li>Home</li></a>
-        <a href="words"><li>All words</li></a>
-        <a href="submit"><li>Submit</li></a>
-        <a href="login"><li>Log in</li></a>
+        <a href="home" routerLinkActive="active-link"><li [routerLink]="['home']">Home</li></a>
+      <a href="words" routerLinkActive="active-link"><li [routerLink]="['words']">All words</li></a>
+      <a href="submit" routerLinkActive="active-link"><li [routerLink]="['submit']">Submit</li></a>
+      <a href="login" routerLinkActive="active-link" *ngIf="!isLoggedIn"><li [routerLink]="['login']">Log in</li></a>
+      <a href="account" routerLinkActive="active-link" *ngIf="isLoggedIn"><li [routerLink]="['account']">Account</li></a>
       </ul>
     </div>
   </div>

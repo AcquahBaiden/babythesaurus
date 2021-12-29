@@ -1,58 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AppService } from '../app.service';
+import { Subscription } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnDestroy {
   word:string;
-  words = ['cute','precious','darling','sweet','adorable','big','small','tiny','chubby','lovely','cuddly','squishy']//get from firebase database
+  words:any;
   loading = true;
   wordGroup:any;
   similarWords:any;
-  constructor(private http:HttpClient) { }
+  sub:any;
+  constructor(private http:HttpClient,
+    private appService: AppService) { }
 
   async ngOnInit(): Promise<void> {
+     this.onGenerateWord();
 
-    this.word = this.getNewWord();
-    this.words = this.words.filter((value)=>{
-      return value !== this.word
-    })
-    this.getWordFromAPI(this.word).subscribe(data=>{
-      this.wordGroup = data[0];
-      this.similarWords = this.getSimilarWords(data)
-      data?this.loading = false : '';
-      console.log(this.wordGroup);
+  }
+
+  async getWordsFromFirebase(){
+     (await this.appService.getWords()).subscribe(data=>{
+      return Object.values(data);
     });
-
   }
 
-  getWordFromAPI(word:string){
-    return this.http.request('GET',`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, {responseType:'json'})
-  }
 
-  onGenerateWord(){
+getWordGroup(word:string){
+  this.sub = this.appService.getWordFromAPI(word)
+  this.sub.subscribe(data=>{
+    this.wordGroup = data[0];
+    this.similarWords = this.getSimilarWords(data)
+    data?this.loading = false : '';
+    console.log(this.wordGroup);
+  });
+}
+
+  async onGenerateWord(){
+    console.log('this.words:',!!this.words);
     this.loading = true;
-    const newWord = this.getNewWord();
-    this.words = this.words.filter((value)=>{
-      return value !== newWord
-    })
-    const newWordGroup = this.getWordFromAPI(newWord);
-    newWordGroup.subscribe(data=>{
-      console.log('generated data:',data);
-      this.wordGroup = data[0];
-      this.similarWords = this.getSimilarWords(data);
-      console.log('similarWords:',this.similarWords);
-      data?this.loading = false : ''
-    })
-  }
+    if(this.words !== undefined){
+      console.log('inside 1');
+      if(this.words.length === 0){
+        (await this.appService.getWords()).subscribe(data=>{
+          this.words= Object.values(data);
+          console.log('this.words:',this.words);
+          this.word = this.words[Math.floor(Math.random()*this.words.length)];
+          this.words = this.words.filter((value)=>{
+            return value !== this.word
+          })
+          this.getWordGroup(this.word)
+        })
+      }else{
+        this.word = this.words[Math.floor(Math.random()*this.words.length)];
+          this.words = this.words.filter((value)=>{
+            return value !== this.word
+          })
+          this.getWordGroup(this.word);
+      }
 
-  getNewWord(){//firebase word
-    if(this.words.length === 0){
-      this.words = ['cuddle','adorable','pretty','beautiful'];
+    }else{
+      console.log('inside 2');
+      (await this.appService.getWords()).subscribe(data=>{
+        this.words= Object.values(data);
+        console.log('this.words:',this.words);
+        this.word = this.words[Math.floor(Math.random()*this.words.length)];
+        this.words = this.words.filter((value)=>{
+          return value !== this.word
+        })
+        this.getWordGroup(this.word)
+      })
     }
-    return this.words[Math.floor(Math.random()*this.words.length)];
+    console.log('inside 3');
+
+
   }
 
   getSimilarWords(data:any){
@@ -61,7 +86,17 @@ export class HomeComponent implements OnInit {
   }
 
   saveWord(){
-
+    this.appService.user.pipe(take(1),map((user)=>{
+      if(!user){
+        alert('Log in to save word');
+        return
+      }
+      this.appService.saveWord(user.uid,this.word).then(()=>{
+        alert('Word successfully saved')
+      }).catch((error)=>{
+        alert('Something went wrong. Word was not saved')
+      })
+    }))
   }
 
   playAudio(link:string){
@@ -70,5 +105,11 @@ export class HomeComponent implements OnInit {
     audio.src = link;
     audio.load();
     audio.play()
+  }
+
+  ngOnDestroy(){
+    if(this.sub){
+      this.sub.unsubscribe()
+    }
   }
 }

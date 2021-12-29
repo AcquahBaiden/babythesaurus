@@ -12,7 +12,6 @@
   margin-bottom: 100px;
   width: 349px;
   min-height: 721px;
-
 }
 .heading{
   text-align: center;
@@ -31,6 +30,7 @@
 .word-group .phenotic{
   opacity: 61%;
 }
+
 .actions{
   display: flex;
   justify-content: space-between;
@@ -48,30 +48,8 @@
   /* font: var(--secondary); */
   font-weight: 700;
 }
-.meaning{
-  font-weight: 600;
 
-}
-.example{
-  opacity: 61%;
-  margin-bottom: 15px;
-}
-span.word{
-  background-color:var(--word-shade);
-  border-radius:5px;
-  padding: 0 3px;
-}
 
-.speech-group{
-  margin-bottom: 30px;
-}
-.similarWords .word{
-  margin: 0 10px;
-}
-svg.clickable:hover{
-  transform: scale(1.1);
-  cursor: pointer;
-}
 span.speech{
   color:var(--secondary)
 }

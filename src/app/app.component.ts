@@ -9,13 +9,10 @@ export class AppComponent implements OnInit {
   title = 'babythesaurus';
   isMobileScreen = false;
   mobileWidth:number = 768;
-  loadMessage:boolean = true;
   first:boolean = true
   ngOnInit(): void {
-      window.screen.width < this.mobileWidth ? this.isMobileScreen = true : this.isMobileScreen = false;
-      if(this.loadMessage){
-        this.startMessage()
-      }
+    window.innerWidth < this.mobileWidth ? this.isMobileScreen = true : this.isMobileScreen = false;
+
   }
   @HostListener('window:resize', ['$event'])
   onResize(event?){
@@ -23,12 +20,4 @@ export class AppComponent implements OnInit {
     event.target.window.innerWidth < this.mobileWidth? this.isMobileScreen = true:this.isMobileScreen = false
   }
 
-  onContinue(){
-    this.first = false
-  }
-  onExit(){
-    this.loadMessage = false;
-  }
-
-  startMessage(){}
 }

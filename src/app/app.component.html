@@ -1,35 +1,8 @@
-<app-navbar *ngIf="!isMobileScreen && !loadMessage"></app-navbar>
-<app-navbar-mobile *ngIf="isMobileScreen && !loadMessage"></app-navbar-mobile>
+<app-navbar *ngIf="!isMobileScreen"></app-navbar>
+<app-navbar-mobile *ngIf="isMobileScreen"></app-navbar-mobile>
 
 
-<router-outlet *ngIf="!loadMessage"></router-outlet>
+<router-outlet></router-outlet>
 
 
-<!-- Birthday Message down here -->
-<div class="backdrop" *ngIf="first">
-  <img src="../assets/icons/birthdaymessage.png" alt="happy birthday image">
-  <button class="yellow" (click)="onContinue()">
-    Click me Ann!
-  </button>
-</div>
-<div class="backdrop" *ngIf="!first">
-  <div class="card">
-    <div class="header">
-      Happy Birthday Ann!
-    </div>
-    <div class="message">
-      <p>
-        We made you one of the things you’ve always wanted. Bringing one of your business ideas to life.
 
-      Here is a website to expand the world’s baby descriptor vocabulary.
-      </p>
-    </div>
-    <div class="footer" style="display: flex; justify-content: center;">
-      <button (click)="onExit()">
-        Click me Ann!
-      </button>
-    </div>
-
-  </div>
-
-</div>

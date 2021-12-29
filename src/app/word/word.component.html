@@ -1,0 +1,45 @@
+
+
+  <div class="wrapper">
+    <button class="accordion" (click)="clickEvent()" [ngClass]="status ? 'active' : 'inactive'"> {{word}} </button>
+<div class="panel" [ngClass]="status ? 'active' : 'inactive'">
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <div *ngIf="!loading">
+
+    <div class="bottom card">
+      <h2>Meaning</h2>
+      <div class="speech-group" *ngFor="let meaning of wordGroup[0].meanings"><!--repeating div-->
+        <div class="partSpeech">
+          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7">
+            <circle id="Ellipse_9" data-name="Ellipse 9" cx="3.5" cy="3.5" r="3.5" fill="#f4a669"/>
+          </svg>
+         <span class="speech"> {{meaning.partOfSpeech}} </span>
+        </div>
+        <div *ngFor="let definition of meaning.definitions">
+          <div class="meaning">
+            {{definition.definition}}
+          </div>
+          <div class="example">
+            {{definition.example}}
+            <!-- he <span class="word">cuddles</span> the baby close build pipe to transform the example and shade the background -->
+          </div>
+        </div>
+
+      </div>
+      <div class="similarWords"> <!--repeating-->
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7">
+            <circle id="Ellipse_9" data-name="Ellipse 9" cx="3.5" cy="3.5" r="3.5" fill="#f4a669"/>
+          </svg>
+          <span class="speech"> Similar words</span>
+        </div>
+        <span *ngFor="let word of similarWords" class="word"> {{word}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+  </div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-mobile.component.css']
 })
 export class NavbarMobileComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn:boolean = false;
+  constructor(private appService:AppService) { }
 
   ngOnInit(): void {
+    this.appService.user.subscribe(response=>{
+      if(response){
+        this.isLoggedIn = true;
+      }else{
+        this.isLoggedIn = false;
+      }
+    })
   }
 
 }

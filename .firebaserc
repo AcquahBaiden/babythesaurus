@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "staging": "babythesaurus-4a326"
+  },
+  "targets": {
+    "babythesaurus-4a326": {
+      "hosting": {
+        "babythesaurus": [
+          "babythesaurus-4a326"
+        ]
+      }
+    }
+  }
+}
