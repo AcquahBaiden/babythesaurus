@@ -1,4 +1,13 @@
 # Babythesaurus
+##Introduction
+This is the code for [https://www.babythesaurus.com](https://www.babythesaurus.com). This project is a gift to my mother-in-law. It is one of her many ideas she conceives. This project she conceived as she struggled to find different words to describe all the baby photos she was receiving from her friends. 
+
+It is [Angular 11](https://angular.io/) project with a firebase backend using [angularfire 6](https://github.com/angular/angularfire) and word definition from this [dictionary api](https://dictionaryapi.dev/). Core project aim is to generate random baby adjectives and descriptives. 
+Other features include;
+- word submission form
+- word approval feature for superUser
+- signup and log in features
+- a simple user account for user to access their saved words 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
