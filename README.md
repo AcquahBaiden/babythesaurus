@@ -9,6 +9,8 @@ Other features include;
 - signup and log in features
 - a simple user account for user to access their saved words 
 
+
+#BabyThesaurus
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
 ## Development server
