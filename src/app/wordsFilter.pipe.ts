@@ -19,7 +19,7 @@ export class WordsFilter implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return words.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+      return it.word.toLocaleLowerCase().includes(searchText);
     });
   }
 }

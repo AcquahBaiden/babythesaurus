@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="card" >
+  <div>
     <h1 *ngIf="isLogin"> Log in </h1>
     <h1 *ngIf="!isLogin"> Sign up </h1>
     <div class="errorBar" *ngIf="isLoginError">
@@ -12,18 +12,18 @@
       </div>
       <div>
         <div class="input-text">Password</div>
-        <input type="password" formControlName="password">
+        <input type="password" formControlName="password" min="6">
+        <!-- <div *ngIf="isLogin && loginForm.value.password.legnth<7">Password should be at least 7 characters</div> -->
       </div>
       <div *ngIf="isLogin">
-        <span>Don't have an account? <a (click)="onSwitchToSignup()" >Sign up</a></span>
+        <span>Don't have an account? <a (click)="toggleForm('signup')" >Sign up</a></span>
       </div>
       <div *ngIf="!isLogin">
-        <span>Don't have an account? <a (click)="onSwitchToLogin()" >Log in</a></span>
+        <span>Don't have an account? <a (click)="toggleForm('login')" >Log in</a></span>
       </div>
       <button class="button" type="submit">
         {{isLogin?'Log in':'Sign up'}}
       </button>
     </form>
-
     </div>
 </div>

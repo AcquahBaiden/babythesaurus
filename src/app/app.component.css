@@ -11,7 +11,6 @@
 }
 
 img{
-  /* border: 5px solid #FFBA00; */
   width: 350px;
 }
 .backdrop button.yellow{
@@ -47,7 +46,6 @@ img{
 .backdrop .card button{
   align-self: center;
   border: 5px solid var(--blue-main);
-  /* border-radius: 0 0 5px 5px; */
   color:#fff;
   background-color:var(--blue-main);
   padding: 10px 60px;

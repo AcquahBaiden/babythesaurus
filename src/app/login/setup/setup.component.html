@@ -1,0 +1,30 @@
+
+<div class="main">
+  <div>
+    <h1 > Personal information </h1>
+    <p>Please provide some basic information</p>
+    <div class="errorBar" *ngIf="isError">
+      {{errorMessage}}
+    </div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div>
+        <div class="input-text">First name</div>
+        <input type="text"  ngModel name="firstName" required  #firstNameCtrl="ngModel"
+        ><span>Required</span>
+      </div>
+      <div>
+        <div class="input-text">Last name</div>
+        <input type="text" ngModel name="lastName" required #lastNameCtrl="ngModel">
+        <div style="display: block;"><span>Required</span></div>
+      </div>
+      <div>
+        <div class="input-text">Date of birth</div>
+        <input type="date" ngModel name="dob" [min]="minDate" [max]="maxDate">
+      </div>
+
+      <button class="button" type="submit" [disabled]="!f.valid">
+        Continue
+      </button>
+    </form>
+    </div>
+</div>

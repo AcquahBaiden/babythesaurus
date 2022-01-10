@@ -1,1 +1,43 @@
-<p>submit works!</p>
+<div class="main" >
+  <div>
+    <form [formGroup]="submitForm" (ngSubmit)="onSubmitWord()" >
+      <div>
+        <div class="input-text">Word</div>
+        <input type="text" formControlName="word" placeholder="Word" >
+        <div class="errorBar" *ngIf="wordError">{{errorMessage}}</div>
+      </div>
+      <div>
+        <div class="input-text">Example</div>
+        <textarea type="text" formControlName="example" placeholder="Use the word in a sentence"></textarea>
+      </div>
+      <div style="display: flex; align-items:center; justify-content: flex-end; font-size: 14px;">
+        <span style="margin: auto 20px;">Submit <span *ngIf="!submitAnonymous"> anonymously </span> <span *ngIf="submitAnonymous"> your name </span> instead? </span>
+        <label class="switch">
+          <input type="checkbox" checked (change)="toggleAnonymous()">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div *ngIf="!submitAnonymous">
+        <div>
+          <div class="input-text">Submitted by</div>
+          <input type="text" value="{{userName}}">
+        </div>
+      </div>
+      <div *ngIf="submitAnonymous">
+        <div>
+          <div class="input-text">Submitted by</div>
+          <input type="text" placeholder="Anonymous" readonly>
+        </div>
+      </div>
+      <button class="button" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+<div id="snackbarWrapper" [ngClass]="isSuccess?'success':'error'">
+  <div id="snackbar" [ngClass]="active?'show':''" >
+    {{message}}
+  </div>
+</div>

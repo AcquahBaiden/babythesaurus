@@ -21,6 +21,8 @@ import { WordComponent } from './word/word.component';
 import { WordsFilter } from './wordsFilter.pipe';
 import { environment } from 'src/environments/environment.prod';
 import { CommonModule } from '@angular/common';
+import { SetupComponent } from './login/setup/setup.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,13 @@ import { CommonModule } from '@angular/common';
     NavbarMobileComponent,
     AllWordsComponent,
     LoginComponent,
-    SubmitComponent,
     HomeComponent,
     LoadingComponent,
     WordComponent,
     WordsFilter,
+    SubmitComponent,
+    SetupComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

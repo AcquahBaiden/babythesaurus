@@ -2,7 +2,7 @@
 <div class="main-wrapper" *ngIf="!loading">
   <div class="heading">
     <h1>Baby Words</h1>
-    <h2 style="font-size: 18px;">Hit generate for cute baby words</h2>
+    <h2 style="font-size: 18px;">Hit generate for baby adjectives & descriptions</h2>
    </div>
   <div class="position">
     <div class="content-wrapper">
@@ -12,6 +12,7 @@
        <div class="word-group">
         <div class="word">{{wordGroup.word}}</div>
         <div class="phenotic">{{wordGroup.phonetics[0].text}}</div>
+        <div class="phenotic" style="text-align: right;" >By: {{word.userName? word.userName:'' }} </div>
        </div>
         <div class="actions">
           <svg  (click)="playAudio(wordGroup.phonetics[0].audio)" xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" class="clickable">
@@ -68,7 +69,7 @@
             </div>
             <div class="example">
               {{definition.example}}
-              <!-- he <span class="word">cuddles</span> the baby close build pipe to transform the example and shade the background -->
+
             </div>
           </div>
 
@@ -89,3 +90,8 @@
 </div>
 
 
+<div id="snackbarWrapper" [ngClass]="isSuccess?'success':'error'">
+  <div id="snackbar" [ngClass]="active?'show':''" >
+    {{message}}
+  </div>
+</div>

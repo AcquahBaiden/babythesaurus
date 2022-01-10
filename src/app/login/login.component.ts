@@ -11,8 +11,10 @@ import { AppService } from '../app.service';
 export class LoginComponent implements OnInit {
   loading:boolean= false;
   isLogin:boolean = true;
-  isLoginError:boolean = true;
+  isLoginError:boolean = false;
   errorMessage = 'No email found with the record. Please sign up';
+  //deplate driven form for login. Use dynamic form if you demand more control for the process.
+  // Check submitComponent form as example
   loginForm = this.formBuilder.group({
     email: '',
     password: ''
@@ -24,8 +26,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //handles user login and signup.
+  // can be split into two if you require more for a signup process
   onSubmit(isLogin:boolean){
-    console.log(this.loginForm.value);
     if(!this.loginForm.value.email){
       return
     }
@@ -35,13 +38,27 @@ export class LoginComponent implements OnInit {
 
     if(isLogin){
       this.appService.login(this.loginForm.value.email,this.loginForm.value.password).then(user=>{
-        this.router.navigate(['home']);
+        this.loading = true;
+        this.router.navigate(['account']);
       }).catch(error=>{
-
+        this.isLoginError = true;
+      switch(error.code){
+        case 'auth/user-not-found':
+          this.errorMessage = 'Email address not registered to an account. Please sign up';
+          break;
+        case 'auth/wrong-password':
+          this.errorMessage = 'Incorrect password. Please try again!';
+          break;
+        case 'auth/network-request-failed':
+          this.errorMessage = 'A network error occured. Please check your internet and try again';
+          break;
+        default:
+          this.errorMessage = 'Something went wrong. Please try again later';
+      }
       })
     }else{
       this.appService.createAccount(this.loginForm.value.email,this.loginForm.value.password).then(user=>{
-        this.router.navigate(['home']);
+        this.router.navigate(['account']);
       }).catch(error=>{
         this.isLoginError = true;
         switch(error.code){
@@ -61,14 +78,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-onSwitchToSignup(){
-  this.isLogin = false;
+
+toggleForm(type:string){
+  type==='login'?this.isLogin = true: this.isLogin = false;
 }
-
-onSwitchToLogin(){
-  this.isLogin = true;
-}
-
-
 
 }

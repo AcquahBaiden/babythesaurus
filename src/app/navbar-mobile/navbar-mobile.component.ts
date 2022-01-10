@@ -19,5 +19,7 @@ export class NavbarMobileComponent implements OnInit {
       }
     })
   }
-
+  logout(){
+    this.appService.logout();
+  }
 }

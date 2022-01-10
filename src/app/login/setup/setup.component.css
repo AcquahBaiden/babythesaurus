@@ -4,6 +4,7 @@
   align-items:center;
   height: 100vh;
 }
+
 *{
   font-size: 16px;
 }
@@ -11,31 +12,22 @@ h1{
   font-size: 25px;
   text-align: center;
 }
-
-
-.input-text{
-  margin: 5px 20px;
+button{
+  width: 100%;
+  background-color:var(--blue-main);
+  border-radius:5px;
+  padding: 15px;
+  color: #fff;
 }
-
-
+span{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  opacity: 90%;
+  color: var(--warning);
+}
 .errorBar{
   padding: 5px 20px;
   background-color:var(--warning);
   color:#fff;
 }
-span{
-  float: right;
-  margin: 15px 5px;
-}
-span a{
-  cursor: pointer;
-
-}
-span a:hover{
-  transform: scale(1.1);
-}
-a{
-  color: var(--blue-main);
-}
-
-

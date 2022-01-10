@@ -11,12 +11,12 @@ export class AppComponent implements OnInit {
   mobileWidth:number = 768;
   first:boolean = true
   ngOnInit(): void {
+    // determines window size on launch and sets right navbar
     window.innerWidth < this.mobileWidth ? this.isMobileScreen = true : this.isMobileScreen = false;
-
   }
+// listens for screen resize to select right navbar
   @HostListener('window:resize', ['$event'])
   onResize(event?){
-    event.target.window.innerWidth < this.mobileWidth?console.log(true):console.log(false);
     event.target.window.innerWidth < this.mobileWidth? this.isMobileScreen = true:this.isMobileScreen = false
   }
 

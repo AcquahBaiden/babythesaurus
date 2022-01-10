@@ -21,25 +21,17 @@ export class WordComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
   }
-
+//toggles view and gets word definition from api
   clickEvent(){
-    console.log('clicked');
-    console.log('this.wordGroup:',this.wordGroup);
-    console.log('this.word:',this.word);
     if(this.wordGroup){
       this.status = !this.status;
-      console.log('status:',this.status);
       this.loading = false;
     }else{
-      console.log('second');
       this.sub =  this.appService.getWordFromAPI(this.word);
       this.sub.subscribe(data=>{
         this.wordGroup = data;
-        console.log('data:',data);
-        console.log('this.wordGroup:',this.wordGroup);
         this.meanings = data[0].meanings;
         this.similarWords = this.getSimilarWords(data);
-        console.log('this.similarwords:',this.similarWords);
         this.loading = false;
         this.status = true
       })
@@ -47,6 +39,7 @@ export class WordComponent implements OnInit, OnDestroy {
     }
   }
 
+  // retrieves similar words from dictionary api response
 getSimilarWords(data:any){
   const all = data[0].meanings[0].definitions[0].synonyms
   return all.slice(0, 3)

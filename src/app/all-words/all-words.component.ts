@@ -12,7 +12,7 @@ import { AppService } from '../app.service';
 
     <input type="text" placeholder="Search..." [(ngModel)]="searchText" style="max-width: 400px; margin: 10px auto; padding: auto 40px;">
     <div *ngFor="let word of words | wordsFilter: searchText;" >
-    <app-word word = "{{word}}"></app-word>
+    <app-word word = "{{word.word}}"></app-word>
     </div>
   </div>`,
 

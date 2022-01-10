@@ -13,6 +13,7 @@ import { AppService } from '../app.service';
       <a href="submit" routerLinkActive="active-link"><li [routerLink]="['submit']">Submit</li></a>
       <a href="login" routerLinkActive="active-link" *ngIf="!isLoggedIn"><li [routerLink]="['login']">Log in</li></a>
       <a href="account" routerLinkActive="active-link" *ngIf="isLoggedIn"><li [routerLink]="['account']">Account</li></a>
+      <a href="account" (click)="logout()"  *ngIf="isLoggedIn"><li>Log out</li></a>
     </ul>
 </div>`,
   styleUrls: ['./navbar.component.css']
@@ -29,6 +30,10 @@ isLoggedIn:boolean = false;
         this.isLoggedIn = false;
       }
     })
+  }
+
+  logout(){
+    this.appService.logout();
   }
 
 }

@@ -13,7 +13,8 @@
       <a href="submit" routerLinkActive="active-link"><li [routerLink]="['submit']">Submit</li></a>
       <a href="login" routerLinkActive="active-link" *ngIf="!isLoggedIn"><li [routerLink]="['login']">Log in</li></a>
       <a href="account" routerLinkActive="active-link" *ngIf="isLoggedIn"><li [routerLink]="['account']">Account</li></a>
-      </ul>
+      <a href="account" (click)="logout()"  *ngIf="isLoggedIn"><li>Log out</li></a>
+    </ul>
     </div>
   </div>
 </div>
